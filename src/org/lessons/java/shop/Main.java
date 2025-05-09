@@ -1,40 +1,15 @@
 package org.lessons.java.shop;
 
-import java.util.Random;
+import java.math.BigDecimal;
 
 public class Main {
 
-    //
     public static void main(String[] args) {
 
-        Smartphone iphone = new Smartphone(1, "iphone", "display", 10000, 22);
-
-        // iphone.codice = 1;
-        // iphone.nome = "iphone";
-        // iphone.descrizione = "display 6'1";
-        // iphone.prezzo = 10000;
-        // iphone.iva = 22;
-
-        System.out.println(iphone.codiceGenerato);
-        System.out.println(iphone.nome);
-        System.out.println(iphone.descrizione);
-        System.out.println(iphone.prezzo);
-        System.out.println(iphone.iva);
-
-        System.out.println(iphone.accendi());
-
-        Random randomGenerator = new Random();
-        int max = 100000000;
-        int codiceGenerato = randomGenerator.nextInt(max);
-        System.out.println(codiceGenerato);
-
-        int prezzo = 1000;
-        int iva = 22;
-
-        float prezzoIphone = (float) prezzo * (float) iva / 100;
-
-        System.out.println(prezzoIphone);
-
-
+        Prodotto iphone = new Prodotto("iphone", "Display",
+                         new BigDecimal(1.000f), new BigDecimal(0.22f));
+        System.out.println(iphone.getNomeEsteso());
+        System.out.println(String.format("%.2f", iphone.getPrezzoBase()));
+        System.out.println(String.format("%.2f", iphone.getPrezzoIvato()));
     }
 }
